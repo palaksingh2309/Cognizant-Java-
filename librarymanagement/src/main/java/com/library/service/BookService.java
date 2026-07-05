@@ -6,6 +6,7 @@ public class BookService {
 
     private BookRepository repository;
 
+    // Setter Injection
     public void setRepository(BookRepository repository) {
         this.repository = repository;
     }
