@@ -1,0 +1,212 @@
+/* Premium Design System for Student Management Portal Score Card */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-glow: radial-gradient(circle, rgba(133, 93, 240, 0.15) 0%, rgba(200, 200, 255, 0) 70%);
+  --accent-purple: #855df0;
+  --accent-blue: #3b82f6;
+  --bg-dark: #0f0c1b;
+  --card-bg: rgba(25, 22, 47, 0.65);
+  --card-border: rgba(133, 93, 240, 0.25);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  
+  /* Status colors */
+  --excellent-color: #10b981;
+  --good-color: #3b82f6;
+  --pass-color: #f59e0b;
+  --fail-color: #ef4444;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(133, 93, 240, 0.1) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.score-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  perspective: 1000px;
+}
+
+.score-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(133, 93, 240, 0.1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.score-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 70px rgba(133, 93, 240, 0.2);
+}
+
+.card-header {
+  background: linear-gradient(135deg, rgba(133, 93, 240, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+  padding: 2rem 2rem 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  position: relative;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  background: linear-gradient(to right, #ffffff, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portal-badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(133, 93, 240, 0.25);
+  border: 1px solid rgba(133, 93, 240, 0.4);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #c7d2fe;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.detail-label {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.detail-value {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: right;
+}
+
+.highlight-name {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(133, 93, 240, 0.3);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 1.5rem 0;
+}
+
+.result-row {
+  background: linear-gradient(90deg, rgba(133, 93, 240, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(133, 93, 240, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.result-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.result-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3b82f6;
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.status-row {
+  margin-bottom: 0;
+}
+
+.status-badge {
+  padding: 0.35rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.status-excellent {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--excellent-color);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-good {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: var(--good-color);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-pass {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--pass-color);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-fail {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--fail-color);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.card-footer {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.card-footer p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.025em;
+}
+
+/* Add subtle micro-animation keyframes */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
