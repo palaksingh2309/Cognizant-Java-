@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #0b1511 0%, #080f1d 100%);
+  --card-bg: rgba(16, 28, 25, 0.65);
+  --card-border: rgba(74, 222, 128, 0.12);
+  --card-border-hover: rgba(74, 222, 128, 0.3);
+  --primary: #4ade80; /* cricket grass green */
+  --primary-glow: rgba(74, 222, 128, 0.4);
+  --secondary: #3b82f6; /* blue accent */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Header styling */
+.app-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.app-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Toggle Switch Control */
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.toggle-container {
+  display: flex;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  padding: 0.35rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.8rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  outline: none;
+}
+
+.toggle-button.active {
+  background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+  color: #050b07;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+}
+
+.toggle-button:not(.active):hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Component Sections */
+.section-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  transition: border-color 0.3s ease;
+}
+
+.section-card:hover {
+  border-color: var(--card-border-hover);
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+  color: #60a5fa; /* light blue */
+}
+
+/* Player Grid and Cards */
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.player-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.player-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0.7;
+}
+
+.player-card.even-card::before {
+  background: var(--secondary);
+}
+
+.player-card:hover {
+  transform: translateY(-4px);
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-sm);
+}
+
+.player-info {
+  text-align: center;
+  width: 100%;
+}
+
+.player-number {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.player-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0.25rem 0;
+}
+
+.player-score-badge {
+  display: inline-block;
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
+.player-score-badge.low-score {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.player-score-badge.high-score {
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+  border-color: rgba(250, 204, 21, 0.2);
+}
+
+/* IndianPlayers Subsections */
+.teams-flex-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .teams-flex-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-column {
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.merged-players-section {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.merged-players-section .section-subtitle {
+  color: #93c5fd;
+  margin-top: 0;
+}
+
+/* Simple list variant for merged view */
+.merged-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.merged-player-chip {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.merged-player-chip:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Empty or info text */
+.info-banner {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--text-muted);
+}
