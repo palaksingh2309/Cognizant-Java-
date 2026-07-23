@@ -1,12 +1,12 @@
-package com.cognizant.ormlearn.service;
+package SpringDataJPAandHibernate.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cognizant.ormlearn.model.Country;
-import com.cognizant.ormlearn.repository.CountryRepository;
+import SpringDataJPAandHibernate.ormlearn.Country;
+import SpringDataJPAandHibernate.repository.CountryRepository;
 
 import jakarta.transaction.Transactional;
 

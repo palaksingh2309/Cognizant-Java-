@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.context.ApplicationContext;
 
-import com.cognizant.ormlearn.service.CountryService;
+import SpringDataJPAandHibernate.service.CountryService;
 
 @SpringBootApplication
 public class OrmLearnApplication {

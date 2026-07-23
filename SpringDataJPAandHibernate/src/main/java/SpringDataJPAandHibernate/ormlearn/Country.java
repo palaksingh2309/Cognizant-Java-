@@ -1,4 +1,4 @@
-package main.java.SpringDataJPAandHibernate.ormlearn;
+package SpringDataJPAandHibernate.ormlearn;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
